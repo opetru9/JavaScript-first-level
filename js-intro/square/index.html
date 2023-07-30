@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    
+    <script>
+        //data
+        color=prompt("Enter the BOX COLOR name or code")
+        size= prompt("Enter the BOX SIZE in pixels")
+        borderColor= prompt("Enter the BORDER COLOR name or code")
+        borderSize= prompt("Enter the BORDER SIZE in pixels")
+        // borderType="solid"
+
+        document.write(
+        `<div style="background: ${color}; 
+                        width: ${size}px; 
+                            height: ${size}px;
+                                 border:${borderSize}px solid ${borderColor}
+                                    ">
+        </div>`
+        )
+    </script>
+</body>
+
+</html>

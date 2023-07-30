@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        //data
+
+        studentMark = +prompt("Your mark")
+        studentBudget = +prompt("Your budget")
+        // const
+        APPROVAL_MARK = 7.0
+        CONTRACT_COST = 10000
+
+        approved = studentMark >= APPROVAL_MARK 
+                    ||
+                   studentBudget >= CONTRACT_COST
+                   
+        alert( "Are you approved: " + approved)
+    </script>
+</body>
+
+</html>

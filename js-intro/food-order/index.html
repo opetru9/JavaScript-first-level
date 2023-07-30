@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        //data
+        foodName = " Salad"
+        foodPriceValue = 15.00
+        foodPriceUnits = " MDL"
+        deliveryTax = 10.00
+
+        clientQuantity = prompt("We have:" + foodName + "," + "\nHow many do you want?")
+
+        Cost = clientQuantity * foodPriceValue + deliveryTax
+        totalCost = Cost + deliveryTax
+
+        
+        alert(  "You've ordered: " +  clientQuantity + foodName 
+                + "\n\nBill: " +  Cost + foodPriceUnits + " ( Salad )" + "\n    +" + deliveryTax + foodPriceUnits + " ( Delivery tax )\n"
+                    + "Total: " + totalCost + foodPriceUnits)
+        
+    </script>
+</body>
+</html>
