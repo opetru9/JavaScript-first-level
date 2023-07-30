@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+        a = +prompt("Enter \"A\" value")
+        b = +prompt("Enter \"B\" value")
+
+        operation1= a * b
+        div= a / b
+        plus= a + b
+        min= a - b
+
+        alert(
+            "VALUES "
+        +   "\na = "          + a
+        +   "\nb = "          + b
+        +   "\nOPERATIONS"     
+        +   "\n a * b = "     + operation1 
+        +   "\n a / b = "     + div
+        +   "\n a + b = "     + plus
+        +   "\n a - b = "     + min
+        )
+
+        document.write("<h1>VALUES</h1>");
+        var value =  " a = " + a + "<br>"; 
+            value += " b = " + b; 
+        document.write(value);
+
+        document.write("<h1>OPERATIONS</h1>");    
+        var operation =  " a * b = " + operation1 + "<br>";
+            operation += " a / b = " + div + "<br>";
+            operation += " a + b = " + plus + "<br>";
+            operation += " a - b = " + min ;
+        document.write(operation);
+
+    </script>
+</body>
+</html>
