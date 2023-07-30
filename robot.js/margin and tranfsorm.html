@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive robot</title>
+    <style>
+        body{
+            background-color: rgb(9, 55, 77);
+        }
+        #box{
+            position: relative;
+            width: 400px;
+            height: 400px;
+            margin:0 auto;
+            background-color: #2b040498;
+            border-radius: 7px;
+            border: 3px solid #53a757;
+        }
+        #box .robot{
+            position: absolute;
+            right: 0px;
+            bottom: 0;
+            top: 0;
+            left: 0;
+            margin: auto;
+
+            width: 50px;
+            height: 50px;
+            background-image: url(https://icons.iconarchive.com/icons/martin-berube/character/72/Robot-icon.png);
+            background-size: contain;
+        }
+        #controls{
+            text-align: center;
+            background-color: #eee;
+            width: 190px;
+            height: 190px;
+            border-radius: 100%;
+            margin: 2px auto;
+            position: relative;
+        }
+        #controls  button{
+            position: absolute;
+            border: transparent;
+            cursor: pointer;
+        }
+        #controls button:nth-of-type(1){
+            
+            top: 15px;
+            right: 65px;
+        }
+        #controls  button:nth-of-type(2){
+            position: absolute;
+            left: 15px;
+            top: 65px;
+        }
+        #controls  button:nth-of-type(3){
+            position: absolute;
+            right: 15px;
+            top: 65px;
+        }
+        #controls  button:nth-of-type(4){
+            position: absolute;
+            bottom: 15px;
+            right: 65px;
+        }
+        
+    </style>
+</head>
+<body>
+    <div id="box"> 
+        <div class="robot">
+        </div>
+    </div>
+
+    <div id="controls">
+
+        <button
+            onclick="move += -20
+                    move < -180 ? move = 173 : null
+                        box.innerHTML = `<div class='robot' 
+                            style= 'transform:translateY(${move}px) ' ></div>` ">
+            <img src="https://icons.iconarchive.com/icons/steve/zondicons/48/Arrow-Outline-Up-icon.png" alt="">
+        </button>
+
+        <button 
+             onclick="left += -20
+                    left < -180 ? left = 173 : null
+                        box.innerHTML = `<div class='robot' 
+                            style= 'transform:translatex(${left}px) ' ></div>` ">
+            <img src="https://icons.iconarchive.com/icons/steve/zondicons/48/Arrow-Outline-Left-icon.png" alt="">
+        </button>
+
+        <button
+            onclick="right += 20
+                    right > 175 ? right = -176 : null
+                        box.innerHTML = `<div class='robot' 
+                            style= 'transform:translatex(${right}px) ' ></div>` ">
+        <img src="https://icons.iconarchive.com/icons/steve/zondicons/48/Arrow-Outline-Right-icon.png" alt="">
+        </button>
+
+        <button
+            onclick="bottom += 20
+                    bottom > 175 ? bottom = -176 : null
+                        box.innerHTML = `<div class='robot' 
+                            style= 'transform:translateY(${bottom}px) ' ></div>` ">
+            <img src="https://icons.iconarchive.com/icons/steve/zondicons/48/Arrow-Outline-Down-icon.png" alt="">
+        </button>
+
+    </div>
+
+
+
+    <!-- <div id="controls">
+
+        <button
+            onclick="margin += 20
+                    margin > 350 ? margin = 0 : null
+                        box.innerHTML = `<div class='robot' 
+                            style= 'margin-bottom: ${margin}px' ></div>` ">
+            <img src="https://icons.iconarchive.com/icons/steve/zondicons/48/Arrow-Outline-Up-icon.png" alt="">
+        </button>
+
+        <button 
+             onclick="margin += 20
+                    margin > 350 ? margin = 0 : null
+                        box.innerHTML = `<div class='robot' 
+                            style= 'margin-right: ${margin}px' ></div>` ">
+            <img src="https://icons.iconarchive.com/icons/steve/zondicons/48/Arrow-Outline-Left-icon.png" alt="">
+        </button>
+
+        <button
+            onclick="margin += 20
+                    margin > 350 ? margin = 0 : null
+                        box.innerHTML = `<div class='robot' 
+                            style= 'margin-left: ${margin}px' ></div>` ">
+        <img src="https://icons.iconarchive.com/icons/steve/zondicons/48/Arrow-Outline-Right-icon.png" alt="">
+        </button>
+
+        <button
+            onclick="margin += 20
+                    margin > 350 ? margin = 0 : null
+                        box.innerHTML = `<div class='robot' 
+                            style= 'margin-top: ${margin}px' ></div>` ">
+            <img src="https://icons.iconarchive.com/icons/steve/zondicons/48/Arrow-Outline-Down-icon.png" alt="">
+        </button>
+
+
+    </div> -->
+
+    <script>
+        move= 0
+        left= 0
+        right= 0
+        bottom= 0
+        margin= 175
+    </script>
+</body>
+</html>
