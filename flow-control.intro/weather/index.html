@@ -1,0 +1,18 @@
+<script>
+    temperatureC = prompt("What is the temperature in Celsius in your town? ")
+
+    LIMIT = 18
+
+    if (temperatureC < LIMIT) {
+        document.write("COLD")
+        document.write("<br><img src='https://icons.iconarchive.com/icons/microsoft/fluentui-emoji-flat/48/Cold-Face-Flat-icon.png'> ")
+    }
+    else if (temperatureC >= 18 && temperatureC <= 25){
+        document.write ("GOOD")
+        document.write("<br><img src='https://icons.iconarchive.com/icons/oxygen-icons.org/oxygen/48/Emotes-face-laugh-icon.png'> ")
+    }
+    else if (temperatureC >= 26) {
+        document.write("HOT")
+        document.write("<br><img src='https://icons.iconarchive.com/icons/microsoft/fluentui-emoji-3d/48/Hot-Face-3d-icon.png'> ")
+    }
+</script>

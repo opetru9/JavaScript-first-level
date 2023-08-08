@@ -1,0 +1,37 @@
+<script>
+    let cost = 0
+    const disconunt = 20
+    
+
+    let serviceOneSelected = confirm("1.Teeth Whitening")
+    if (serviceOneSelected){
+        cost += 500
+    }
+
+    let serviceTwoSelected = confirm("1.Teeth Corection")
+    if (serviceTwoSelected) {
+            cost += 1500
+        }
+
+    let serviceThreeSelected = confirm("1.Teeth extraction")
+    if (serviceThreeSelected) {
+            cost += 1000
+        }
+
+    let costWithDiscount = (100 - disconunt)* cost / 100
+
+    if(serviceThreeSelected && serviceTwoSelected && serviceOneSelected){
+       alert("Total Cost " + cost + "\n"+
+            "dsicount % " + disconunt + "\n"+
+            "cost with discount " + costWithDiscount) 
+    }
+    // if(cost >= 2000){
+    //    alert("Total Cost " + cost + "\n"+
+    //         "sicount % " + disconunt + "\n"+
+    //         "cost with discount " + costWithDiscount) 
+    // }
+    else{
+        alert("Total Cost " + cost) 
+    }
+    
+</script>
