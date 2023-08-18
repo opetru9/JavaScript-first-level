@@ -1,0 +1,29 @@
+<script>
+    
+    const MIN_WIDTH = 60
+    const XS = 560
+    const S = 980
+    const M = 1200
+    const L = 3000
+
+    let windoWidth = innerWidth
+
+    if (windoWidth < 60) {
+        alert("error: desktop too small")
+
+    } else if (windoWidth <= XS ){
+        alert("Extra Small desktop")
+    }
+     else if (windoWidth <= S ){
+        alert("Small desktop")
+    }
+     else if (windoWidth <= M ){
+        alert("Medium desktop")
+    }
+     else if (windoWidth <= L ){
+        alert("Large desktop")
+    }
+     else if (windoWidth > L ){
+        alert("error: desktop too big")
+    }
+</script>
