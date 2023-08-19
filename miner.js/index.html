@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: #222;
+        }
+        .map{
+            width: 500px;
+            height: 500px;
+            border: 5px solid #121;
+            margin: 5vh auto;
+        }
+        .map > div{
+            width: 48px;
+            height: 48px;
+            border: 1px solid #333;
+            float: left;
+            background-size: contain;
+        }
+         #controls{
+            text-align: center;
+            background-color: #eee;
+            width: 190px;
+            height: 190px;
+            border-radius: 100%;
+            position: absolute;
+            right: 10vw;
+            top: 30vh;
+        }
+        #controls  button{
+            position: absolute;
+            border: transparent;
+            cursor: pointer;
+        }
+        #controls button:nth-of-type(1){
+            
+            top: 15px;
+            right: 65px;
+        }
+        #controls  button:nth-of-type(2){
+            position: absolute;
+            left: 15px;
+            top: 65px;
+        }
+        #controls  button:nth-of-type(3){
+            position: absolute;
+            right: 15px;
+            top: 65px;
+        }
+        #controls  button:nth-of-type(4){
+            position: absolute;
+            bottom: 15px;
+            right: 65px;
+        }
+        .map :not([id^=sq1x]){
+            background-image: url(https://icons.iconarchive.com/icons/chrisl21/minecraft/128/Grass-icon.png);
+            background-size: 100% 150%;
+            background-position:bottom;
+        }
+        [id^=sq1x]{
+            background-image: url(https://icons.iconarchive.com/icons/chrisl21/minecraft/128/Grass-icon.png);
+        }
+        
+        @media (max-width:1200px){
+           #controls{
+            margin: 0 auto;
+            position: relative;
+            right: 0;
+            top: 0;
+        } 
+        }
+    </style>
+</head>
+<body>
+
+    <div class="map">
+        <div id="sq1x1"></div>
+        <div id="sq1x2"></div>
+        <div id="sq1x3"></div>
+        <div id="sq1x4"></div>
+        <div id="sq1x5"></div>
+        <div id="sq1x6"></div>
+        <div id="sq1x7"></div>
+        <div id="sq1x8"></div>
+        <div id="sq1x9"></div>
+        <div id="sq1x10"></div>
+
+        <div id="sq2x1"></div>
+        <div id="sq2x2"></div>
+        <div id="sq2x3"></div>
+        <div id="sq2x4"></div>
+        <div id="sq2x5"></div>
+        <div id="sq2x6"></div>
+        <div id="sq2x7"></div>
+        <div id="sq2x8"></div>
+        <div id="sq2x9"></div>
+        <div id="sq2x10"></div>
+
+        <div id="sq3x1"></div>
+        <div id="sq3x2"></div>
+        <div id="sq3x3"></div>
+        <div id="sq3x4"></div>
+        <div id="sq3x5"></div>
+        <div id="sq3x6"></div>
+        <div id="sq3x7"></div>
+        <div id="sq3x8"></div>
+        <div id="sq3x9"></div>
+        <div id="sq3x10"></div>
+
+        <div id="sq4x1"></div>
+        <div id="sq4x2"></div>
+        <div id="sq4x3"></div>
+        <div id="sq4x4"></div>
+        <div id="sq4x5"></div>
+        <div id="sq4x6"></div>
+        <div id="sq4x7"></div>
+        <div id="sq4x8"></div>
+        <div id="sq4x9"></div>
+        <div id="sq4x10"></div>
+
+        <div id="sq5x1"></div>
+        <div id="sq5x2"></div>
+        <div id="sq5x3"></div>
+        <div id="sq5x4"></div>
+        <div id="sq5x5"></div>
+        <div id="sq5x6"></div>
+        <div id="sq5x7"></div>
+        <div id="sq5x8"></div>
+        <div id="sq5x9"></div>
+        <div id="sq5x10"></div>
+
+        <div id="sq6x1"></div>
+        <div id="sq6x2"></div>
+        <div id="sq6x3"></div>
+        <div id="sq6x4"></div>
+        <div id="sq6x5"></div>
+        <div id="sq6x6"></div>
+        <div id="sq6x7"></div>
+        <div id="sq6x8"></div>
+        <div id="sq6x9"></div>
+        <div id="sq6x10"></div>
+
+        <div id="sq7x1"></div>
+        <div id="sq7x2"></div>
+        <div id="sq7x3"></div>
+        <div id="sq7x4"></div>
+        <div id="sq7x5"></div>
+        <div id="sq7x6"></div>
+        <div id="sq7x7"></div>
+        <div id="sq7x8"></div>
+        <div id="sq7x9"></div>
+        <div id="sq7x10"></div>
+
+        <div id="sq8x1"></div>
+        <div id="sq8x2"></div>
+        <div id="sq8x3"></div>
+        <div id="sq8x4"></div>
+        <div id="sq8x5"></div>
+        <div id="sq8x6"></div>
+        <div id="sq8x7"></div>
+        <div id="sq8x8"></div>
+        <div id="sq8x9"></div>
+        <div id="sq8x10"></div>
+
+        <div id="sq9x1"></div>
+        <div id="sq9x2"></div>
+        <div id="sq9x3"></div>
+        <div id="sq9x4"></div>
+        <div id="sq9x5"></div>
+        <div id="sq9x6"></div>
+        <div id="sq9x7"></div>
+        <div id="sq9x8"></div>
+        <div id="sq9x9"></div>
+        <div id="sq9x10"></div>
+
+        <div id="sq10x1"></div>
+        <div id="sq10x2"></div>
+        <div id="sq10x3"></div>
+        <div id="sq10x4"></div>
+        <div id="sq10x5"></div>
+        <div id="sq10x6"></div>
+        <div id="sq10x7"></div>
+        <div id="sq10x8"></div>
+        <div id="sq10x9"></div>
+        <div id="sq10x10"></div>
+    </div>
+
+    <div class="controls" id="controls">
+
+        <button onclick="moveUp ()">
+            <img src="https://icons.iconarchive.com/icons/steve/zondicons/48/Arrow-Outline-Up-icon.png" alt="">
+        </button>
+
+        <button onclick="moveLeft ()">
+            <img src="https://icons.iconarchive.com/icons/steve/zondicons/48/Arrow-Outline-Left-icon.png" alt="">
+        </button>
+
+        <button onclick="moveRight ()">
+            <img src="https://icons.iconarchive.com/icons/steve/zondicons/48/Arrow-Outline-Right-icon.png" alt="">
+        </button>
+
+        <button onclick="moveDown ()">
+            <img src="https://icons.iconarchive.com/icons/steve/zondicons/48/Arrow-Outline-Down-icon.png" alt="">
+        </button>
+
+    </div>
+    
+
+    <script>
+        let row = 1
+        let col = 1
+        let gRow = Math.round(Math.random() * 9 + 1)
+        let gCol = Math.round(Math.random() * 9 + 1)
+        let g2Row = Math.round(Math.random() * 9 + 1)
+        let g2Col = Math.round(Math.random() * 9 + 1)
+        let g3Row = Math.round(Math.random() * 9 + 1)
+        let g3Col = Math.round(Math.random() * 9 + 1)
+        let gFound = false
+        let gFound2 = false
+        let gFound3 = false
+        let gOver = false
+        let score = 0
+        
+        let gId ="sq" + gRow + "x" + gCol 
+        let gDiv = window[gId]
+         gDiv.style.backgroundImage = 'url(https://icons.iconarchive.com/icons/artua/pirates/128/treasure-icon.png)'
+         gDiv.style.backgroundSize = "contain"
+
+        let gId2 ="sq" + g2Row + "x" + g2Col 
+        let gDiv2 = window[gId2]
+         gDiv2.style.backgroundImage = 'url(https://icons.iconarchive.com/icons/artua/pirates/128/treasure-icon.png)'
+         gDiv2.style.backgroundSize = "contain"
+
+        let gId3 ="sq" + g3Row + "x" + g3Col 
+        let gDiv3 = window[gId3]
+         gDiv3.style.backgroundImage = 'url(https://icons.iconarchive.com/icons/artua/pirates/128/treasure-icon.png)'
+         gDiv3.style.backgroundSize = "contain"
+
+        let id = "sq" + row + "x" + col 
+        let div = window[id]
+        div.style.backgroundImage = 'url(https://icons.iconarchive.com/icons/ph03nyx/super-mario/64/Retro-Mario-2-icon.png)'
+        
+        function update() {
+            let id = "sq" + row + "x" + col
+            let div = window[id]
+            div.style.backgroundImage = 'url(https://icons.iconarchive.com/icons/ph03nyx/super-mario/64/Retro-Mario-2-icon.png)'
+            div.style.backgroundSize = "cover"
+        }
+        function clear() {
+            let id = "sq" + row + "x" + col
+            let div = window[id]
+            div.style.backgroundImage = 'none'
+            div.style.backgroundColor = '#000'
+        }
+        function findGold(){
+            if(col == gCol && row == gRow && !gFound){
+                score += 10
+                alert("Yee! " + "Score: " + score)
+                gFound = true
+            }
+            if(gCol == 1 && gRow == 1){
+              gRow = 5
+              gCol = 5  
+            }
+
+        }
+        function findGold2(){
+            if(col == g2Col && row == g2Row && !gFound2){
+                score += 10
+                alert("Fantastic! " + "Score: " + score)
+                gFound2 = true
+            }
+            if(g2Col == 1 && g2Row == 1){
+              g2Row = 6
+              g2Col = 6 
+            }
+
+        }
+        function findGold3(){
+            if(col == g3Col && row == g3Row && !gFound3){
+                score += 10
+                alert("Amazing! " + "Score: " + score)
+                gFound3 = true
+            }
+            if(g3Col == 1 && g3Row == 1){
+              g3Row = 7
+              g3Col = 7 
+            }
+        }
+        function gameOver (){
+            if (gFound == true && gFound2 == true && gFound3 == true && !gOver){
+                alert("Wow , you passed we game !" + "\n" + "Congratulations !!!")
+                gOver = true
+            }
+        }
+
+        function moveRight() {
+            clear()
+            col++
+            if( col > 10 ){
+                col=10
+            }
+            update()
+            findGold()
+            findGold2()
+            findGold3()
+            gameOver()
+        }
+        function moveDown() {
+            clear()
+            row++
+            if( row > 10 ){
+                row=10
+            }
+            update()
+            findGold()
+            findGold2()
+            findGold3()
+            gameOver()
+        }
+        
+        function moveLeft() {
+            clear()
+            col--
+            if (col < 1) { col = 1 }
+            update()
+            findGold()
+            findGold2()
+            findGold3()
+            gameOver()
+        }
+        function moveUp() {
+            clear()
+            row--
+            if (row < 1) { row = 1 }
+            update()
+            findGold()
+            findGold2()
+            findGold3()
+            gameOver()
+        }
+
+    </script>
+</body>
+</html>
