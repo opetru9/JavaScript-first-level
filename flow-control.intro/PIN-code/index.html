@@ -1,0 +1,48 @@
+<script>
+    let PIN     = "1234"
+    let pin     = 0
+    let tries   = 0
+    let balance = 1000000.00
+
+    while(true){
+
+        pin   = +prompt("ENTER PIN: ")
+        tries++
+        if(pin == PIN){
+            alert(`
+            ACCESS GRANTED!!!\n\n
+            Your balance: ${balance} MDL
+                 `)
+            let money    = +prompt("WITHDRAW: ?")
+            let maxMoney = 50000
+            if(money < maxMoney){
+                if(money < balance){
+                    balance -= money
+                    alert(`
+                    Succes !!! \n\n
+                    Your balace :${balance} MDL
+                        `)
+                }
+                else{
+                    alert("SORRY,you haven't enough money!!!")
+                }   
+            }
+            else{
+                alert("SORRY, you can withdraw only 50000 MDL a day")
+            }
+            
+            
+            break
+        }
+        else{
+            alert("WRONG PIN!!!")
+            if(tries == 3){
+                alert("CARD BLOCKED!!!")
+                break
+            }
+        } 
+    }
+   
+
+    
+</script>
