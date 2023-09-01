@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: #111;
+
+        }
+        #forest{
+            border: 1px solid white;
+            position: relative;
+            width: 600px;
+            height: 600px;
+            margin: 0 auto;
+        }
+        .tree{
+            position: absolute;
+            
+        
+        }
+    </style>
+</head>
+<body>
+    <div id="forest" >
+        
+    </div >
+
+
+    <script src="svg.js"></script>
+    <script>
+
+        function addTree( number , color , bottom ,left , scale ,index ){
+        
+        switch(number){
+            case 1:forest.innerHTML+=
+                    `<div class = "tree" style="left: ${left}px; bottom:${bottom}px; transform: scale(${scale});z-index:${index};">` +
+                        svg_1.replace('???' , `style="fill:${color}"`) +  
+                    `</div>`
+
+            case 2:forest.innerHTML+=
+                    `<div class = "tree" style="left: ${left}px; bottom:${bottom}px; transform: scale(${scale});z-index:${index};">` +
+                        svg_2.replace('???' , `style="fill:${color}"`) +  
+                    `</div>`
+                
+            case 3:forest.innerHTML+=
+                    `<div class = "tree" style="left: ${left}px; bottom:${bottom}px; transform: scale(${scale});z-index:${index};">` +
+                        svg_3.replace('???' , `style="fill:${color}"`) +  
+                    `</div>`
+        }
+
+        }
+
+        for(let n = 1;  n <= 5; n++ ){
+            for (let layer = 1 ; layer <= 10; layer++){
+                    addTree(Math.round(1 + Math.random() *2 ), `rgba(0,${210 -layer * 20 + Math.random() * 40},0)` , layer * 20,Math.random() * 500 , 1/layer , -layer)
+                }
+            }
+                
+
+        
+        
+    </script>
+    
+</body>
+</html>
+<!--
+    mask-image 
+    template-string
+-->
