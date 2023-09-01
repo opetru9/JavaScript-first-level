@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            font-size: 40px;
+            letter-spacing: 35px;
+            font-family: monospace;
+            line-height: 45px;
+            text-align: center;
+            margin-top: 10vh;
+        }
+    </style>
+</head>
+<body>
+    <!-- <script>
+        let rx = 7
+        let ry = 4
+        let sx = 2
+        let sy = 10
+        for(y = 1 ; y <= 10 ; y++ ){
+            for (let x = 1 ; x <= 10 ; x++ ){
+                
+                if(rx == x && ry == y ){
+                  document.write(`R` )  
+                }
+                else if(sx == x && sy == y){
+                  document.write("S")  
+                }
+                else{
+                    document.write(".")
+                }
+            }  
+            document.write("<br>")
+        }
+        
+    </script> -->
+    <script>
+        let rx = 4
+        let ry = 6
+        let sx = 10
+        let sy = 10
+
+        let y = 1
+        while(y <= 10){
+            
+            let x = 1
+            while(x <= 10){
+                
+                if(rx == x && ry == y ){
+                  document.write(`R` )  
+                }
+                else if(sx == x && sy == y){
+                  document.write("S")  
+                  
+                }
+                else{
+                    document.write(".")
+                }
+                x++
+            }
+            document.write("<br>")
+
+            y++
+        }
+    </script>
+</body>
+</html>
