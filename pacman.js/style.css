@@ -1,0 +1,61 @@
+body{
+    background-color: #111;
+    color: white;
+}
+#map{
+    background-color: #123;
+    width: 500px;
+    height: 500px;
+    border: 5px solid #513102;
+    margin: 0 auto;
+    position: relative;
+}
+#map > div{
+    width: 48px;
+    height: 48px;
+    border: 1px solid #444;
+    float: left;
+    background-color: transparent;
+}
+.pac{
+    background-image: url(https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/pacman-icon.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.coin{
+    background-image: url(https://cdn-icons-png.flaticon.com/512/2140/2140382.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.bomb{
+    background-image: url(https://cdn-icons-png.flaticon.com/128/6056/6056101.png
+    );
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#gameScore,#gameHP{
+    position: absolute;
+    left: 31.5%;
+    bottom: 11vh;
+}
+#gameHP{
+    position: absolute;
+    bottom: 8vh;
+    left: 31.5%;
+}
+#win img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 99vw;
+    height: 99vh;
+    z-index: 99;
+}
+#lose img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 99vw;
+    height: 99vh;
+    z-index: 99;
+}
