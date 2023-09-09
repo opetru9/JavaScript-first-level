@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel= "stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body onkeydown="action()">
+    
+    <div id="carousel">
+        <div class="slides" id = "carouselSlides"></div>
+        <div id="titles" ></div>
+        <button onclick="prev()"><i class="fa-solid fa-angles-left"></i></button>
+        <span id="carouselIndicators"></span>
+        <button onclick="next()"><i class="fa-solid fa-angles-right"></i></button>
+        <button onclick="play()"> <i class="fa-solid fa-play"></i></button>
+        <button onclick="stop()"><i class="fa-solid fa-stop"></i></button>
+        
+    </div>
+
+    <script>
+        let currentIndex = 0;
+        let autoplayInterval;
+        let animations = [
+            "animate__backInRight",
+            "animate__backInLeft",
+            "animate__bounceInLeft",
+            "animate__bounceInRight"
+        ];
+        const IMAGES = [
+            "img/i1.jpg",
+            "img/i2.jpg",
+            "img/i3.jpg"
+        ];
+        const TITLES = [
+            "Forest",
+            "New York",
+            "Building"
+        ];
+        function showTitles(n){
+            let e = Math.round(Math.random()* 3) ;
+            titles.innerHTML = `<h4 class="animate__animated ${animations[e]}">${TITLES [n]}</h4>`
+        };
+        function showImg(n){
+            let i = Math.round(Math.random()* 3) ;
+            carouselSlides.innerHTML = `
+            <img src="${IMAGES[n]}" alt="" class="animate__animated ${animations[i]}">
+            `
+        };
+        
+        function prev(){
+            // hideImg(currentIndex)
+            currentIndex--
+            if (currentIndex < 0){
+                currentIndex = 2
+            }
+            showImg(currentIndex)
+            // showImg(currentIndex--)
+            showTitles(currentIndex)
+            showIndicators(currentIndex);
+        };
+        function next(){
+            currentIndex++
+            if (currentIndex > 2){
+                currentIndex = 0
+            }
+            showImg(currentIndex)
+            // showImg(currentIndex++)
+            showTitles(currentIndex)
+            showIndicators(currentIndex);
+        };
+        function showIndicators(n){
+            carouselIndicators.innerHTML = ''
+            for (i = 0; i < IMAGES.length; i++){
+                if(i == n){
+                    carouselIndicators.innerHTML += ' <i class="fa-solid fa-circle-dot"></i> '
+                }
+                else{
+                    carouselIndicators.innerHTML += ' <i class="fa-solid fa-circle"></i> '
+                }
+            }
+        }
+        function play(){
+            autoplayInterval = setInterval(next , 3000);
+        };
+        function stop(){
+            clearInterval(autoplayInterval);
+        };
+        function action(){
+            switch(event.key){
+                case"ArrowLeft":prev();
+                break;
+                case "ArrowRight": next();
+                break;
+            };
+        };
+        // function hideImg(n){
+        //     carouselSlides.innerHTML =''
+        //     carouselSlides.innerHTML += `
+        //     <img src="${IMAGES[n]}" alt="" class="animate__animated ${animations[1]}">
+        //     `
+        // };
+        showImg(currentIndex);
+        showTitles(currentIndex);
+        showIndicators(currentIndex);
+    </script>
+</body>
+</html>

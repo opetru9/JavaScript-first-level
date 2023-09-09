@@ -1,0 +1,83 @@
+body{
+            background-color: #222;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        #carousel{
+            border: 10px solid #616d5e;
+            width: 800px;
+            height: 600px;
+            color: white;
+
+            position: relative;
+            margin: 3vh auto;
+        }
+        #carouselSlides{
+            width: 600px;
+            height: 400px;
+
+            position: absolute;
+            inset: 0;
+            margin: auto;
+        }
+        /* .animate__animated.animate__backInRight{
+            animation-duration: 2s linear;
+        } */
+        #carousel button{
+            position: absolute;
+            bottom: 4vh;
+
+            font-size: 25px;
+            text-align: center;
+            line-height: 1px;
+            width: 45px;
+            height: 45px;
+            border-radius: 100%;
+            border-color: transparent;
+            cursor: pointer;
+        }
+        #carousel button:first-of-type{
+            left: 25%;
+            width: 35px;
+            height: 35px;
+            padding-right: 33px;
+        }
+        #carousel button:nth-of-type(2){
+            right: 25%;
+            width: 35px;
+            height: 35px;
+            padding-right: 32px;
+        }
+        #carousel button:nth-of-type(3){
+            right: calc(50% + 10px);
+            padding-left: 12px;
+        }
+        #carousel button:nth-of-type(4){
+            right: calc(50% - 55px);
+            font-size: 22px;
+        }
+        #carousel button:hover{
+            background-color: #8fbb87;
+        }
+        #carousel button:active{
+            transform: scale(0.93);
+        }
+        #carousel span{
+            width: 60px;
+            text-align: center;
+            font-size: 15px;
+            position: absolute;
+            bottom: 13vh;
+            left: calc(50% - 30px);
+
+        }
+        #titles h4{
+            margin: 0;
+            font-size: 2.5em;
+            font-family: Arial, Helvetica, sans-serif;
+            color: black;
+            position: absolute;
+            left: 14%;
+            top: 17%;
+        }
