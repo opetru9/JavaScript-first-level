@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="container"></div>
+    
+    <div id="input"></div>
+
+    <div id="select"></div>
+        
+    
+    
+    <script>
+        let btn = {
+            text: "Register",
+            color: "#345",
+            bgColor:" #eee",
+        };
+// -------------------
+        let ipt = {
+            placeholder: "Your full name",
+            color: "#345",
+            bgColor:" #eee",
+        };
+// -------------------
+        let sel_option = ["a","b","c"];
+        let sel = {
+            color: "#345",
+            bgColor:" #eee",
+        };
+       
+        
+
+
+        container.innerHTML = `
+            <button style = "
+                color:${btn.color};
+                background-color:${btn.bgColor};
+            ">${btn.text}</button>
+        `;
+// -------------------
+        input.innerHTML = `
+            <input type="text" style = "
+            color:${ipt.color};
+            margin: 1% 0;
+            background-color:${ipt.bgColor};
+            " placeholder = "${ipt.placeholder}">
+        `;
+// -------------------
+        select.innerHTML = `
+            <select style = "
+                color:${ipt.color};
+                margin: 1% 0;
+                background-color:${ipt.bgColor};">
+            <option >${sel_option[0]}</option>
+            <option >${sel_option[1]}</option>
+            <option >${sel_option[2]}</option>
+            </select>
+        `;
+        
+    </script>
+</body>
+</html>
