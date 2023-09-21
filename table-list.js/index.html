@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        table{
+            border: 1px solid #222;
+        }
+        td{
+            border: 1px solid #666;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Salary</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody id = "tbody">
+
+        </tbody>
+    </table>
+
+
+    <script>
+        let data = [
+            {
+                name:"John Smith",
+                salary:"10000"
+            },
+            {
+                name:"Mary Jey",
+                salary:"11000"
+            },
+            {
+                name:"Scott Atkinson",
+                salary:"11000"
+            },
+        ] ;
+
+        function render(){
+            tbody.innerHTML =``
+            for(i=0; i < data.length; i++){
+                
+                tbody.innerHTML += `
+                <tr>
+                    <td>${data[i].name}</td>
+                    <td>${data[i].salary}</td>
+                    <td>
+                        <button onclick = "moveUp(${i})"><i class="fa-solid fa-circle-chevron-up"></i></button>
+                        <button onclick = "edit(${i})">...</button>
+                        <button onclick = "moveDown(${i})"><i class="fa-solid fa-circle-chevron-down"></i></button>
+                    </td>
+                </tr>
+                `
+            }
+        };
+        function edit(n){
+            let change = prompt("What do you want to change?")
+            if(change == "salary"){
+                let newSalary = +prompt("enter the new salary")
+                data[n].salary = newSalary
+                } 
+            else if(change == 'name'){
+                let newName = prompt("enter the new name")
+                data[n].name = newName
+                } 
+                
+                render()                       
+
+        }
+        function moveUp(n){
+            if(n > 0){
+                let temp  = data[n-1]
+                data[n-1] = data[n]
+                data[n]   = temp 
+            }
+            render()
+        };
+        function moveDown(n){
+            
+            if(n < data.length-1){
+                let temp  = data[n+1]
+                data[n+1] = data[n]
+                data[n]   = temp 
+            }
+            render()
+        };
+        render();
+    </script>
+</body>
+</html>
