@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Falling snow | JS</title>
+    <style>
+        body{
+            background-color:#012;
+            margin: 0;
+            overflow: hidden;
+        }
+        #container{
+            width: 99vw;
+            height: 99vh;
+            position: relative;
+        }
+        #flake{
+            width: 10px;
+            height: 10px;
+            background-color: #fff;
+            border-radius: 100%;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="container" onclick="stop()"></div>
+
+
+    <script>
+        let flakeNumber  = 20
+        let flake_x      = []
+        let flake_y      = []
+        let play         = true
+        let xOscillation = []
+
+        for (let i = 0; i < flakeNumber; i++) {
+            xOscillation[i] = Math.random() ; 
+        }
+
+
+
+        function renderCoords(){
+            for (i= 0; i < flakeNumber; i++){
+                flake_x[i] = parseInt(Math.random() * 99)
+                flake_y[i] = -parseInt(Math.random() * 99)
+            }
+        }
+
+        function drawFlakes(i){
+            container.innerHTML += `
+                <div id="flake" 
+                style="left: ${flake_x[i]}vw; 
+                       top: ${flake_y[i]}vh;">
+                       </div>
+            `
+        }
+        function showFlakes(){
+            container.innerHTML = ``
+             for (i= 0; i < flakeNumber; i++){
+                drawFlakes(i)
+            }
+        }
+        function fall(){
+            for (i= 0; i < flakeNumber; i++){
+                flake_y[i] += 0.1
+                flake_x[i] += 0.02 * Math.sin(xOscillation[i]);
+                
+                if (flake_y[i] > 99){
+                    flake_y[i] = -5
+                    flake_x[i] = Math.random() * 99
+                }
+            }
+            showFlakes()
+        }
+
+        let fallTimer = setInterval (fall , 10)
+
+        function stop() {
+            if (play) {
+                clearInterval(fallTimer);
+            } else {
+                fallTimer = setInterval(fall, 10);
+            }
+            play = !play;
+        }
+        renderCoords()
+        showFlakes()
+    </script>
+</body>
+</html>
