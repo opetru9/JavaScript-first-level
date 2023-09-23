@@ -1,0 +1,143 @@
+body{
+    background-color: #222;
+    margin: 0;
+    color: #ddd;
+}
+#container{
+    display: flex;
+    flex-wrap: wrap;
+    width: 98vw;
+    justify-content: space-around;
+    margin-top: 2%;
+}
+#container img{
+    width: 250px;
+    height: 330px;
+}
+#container .games {
+    margin: 2% ;
+}
+#container .games h2{
+    margin-bottom: 2%;
+}
+#container .games .rate{
+   color: rgb(201, 211, 5);
+}
+#container .games .price{
+   color:rgb(5, 205, 5);
+   font-weight: bold;
+}
+#container .games button{
+    float: right;
+    cursor: pointer;
+    background-color: #000;
+    color: red;
+    border-color: transparent;
+    padding: 8px 6px;
+    border-radius: 7px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+#container .games button:hover{
+    color: green;
+    background-color:#111;
+}
+#cart_container {
+    position: fixed;
+    right: 2%;
+    top: 6%;
+    width: 330px;
+    height: 300px;
+    overflow-y: auto;
+    
+}
+#cart_container img{
+    margin: 2%;
+    
+    width: 50px;
+    height: 70px;
+    vertical-align: middle;
+}
+
+#cart_container h4{
+    display: inline;
+    line-height: 0px;
+}
+#cart_container .priceCart{
+    display: inline;
+    position: relative;
+    right: -3%;
+}
+#cart_container span{
+    position: absolute;
+    right: 5%;
+}
+#cart_btn{
+    width: 300px;
+    position: fixed;
+    right: 10%;
+    top: 55%;
+    right: 2%;
+    
+}
+#cart_btn button{
+    background-color: rgb(6, 181, 6);
+    color: white;
+    border-color: transparent;
+    padding: 8px 6px;
+    border-radius: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    float: right;
+    cursor: pointer;
+}
+#cart_icon_btn{
+    position: absolute;
+    top: 2%;
+    right: 2%;
+    font-size: 18px;
+    border-radius: 3px;
+    border-color: transparent;
+    background-color: #151515;
+    cursor: pointer;
+}
+.quantity{
+    display: inline-block;
+    transform: translateX(120%)translateY(-4.9vh);
+
+}
+.quantity button{
+    border-color: transparent;
+    font-weight: bold;
+    color: white;
+    font-size: 16px;
+    border-radius: 100%;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+}
+.quantity button:first-of-type{
+    background-color: red;
+    padding: 0px 7px 2px 6px;
+}
+.quantity button:nth-of-type(2){
+    background-color: green;
+    padding: 1px 5px 1px 5px;
+}
+.quantity div{
+    margin: 0 5px;
+    display:inline-block
+}
+.cancel_btn{
+    background-color: red;
+    padding: 1px 4px;
+    color: white;
+    border-color: transparent;
+    font-weight: bold;
+    color: white;
+    font-size: 16px;
+    border-radius: 20%;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    transform: translateX(15vw)translateY(-12.5vh);
+}
