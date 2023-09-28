@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: #222;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <div id="container"></div>
+
+    <script>
+        function randInt(from,to){
+           return Math.round(from + Math.random()*(to-from))
+        }
+
+        function newBall(size,color){
+            return  {
+                size: size,
+                color: color,
+                x: randInt(50, innerWidth - 100),
+                y: randInt(50, innerWidth - 100),
+                speedX: randInt(-15, 15),
+                speedY: randInt(-15, 15),
+
+                render: function () {
+                    return `
+                <div style= " 
+                width : ${this.size}px;
+                height : ${this.size}px;
+                border-radius: ${this.size}px;
+                background-color: ${this.color};
+                position:absolute;
+                left:${this.x}px;
+                top:${this.y}px;
+                opacity:0.1;
+                transition: transform 0.1s, opacity 1.5s;">
+                </div>
+            `},
+                renderInside: function () {
+                    container.innerHTML += this.render()
+                },
+                move: function () {
+                    this.x += this.speedX
+                    if (this.x + this.size >= innerWidth ||
+                        this.x <= 0) {
+                        this.speedX *= -.9
+                    }
+                    this.y += this.speedY
+                    if (this.y + this.size >= innerHeight) {
+                        this.speedY *= -.6
+                    }
+                    if (this.y <= 0) {
+                        this.speedY *= -.8
+                    }
+
+                },
+                animate: function () {
+                    let thisObject = this
+                    setInterval(function () {
+                        thisObject.move();
+                        thisObject.renderInside()
+                        
+                    }, 10)
+                }
+            }    
+
+        }
+        for (let i=0;i<5;i++){
+            let ball = newBall(i*50,"red")
+            ball.animate()
+        }
+
+    </script>
+</body>
+</html>
