@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Food order | cart with js</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <style>
+        body {
+            background-color: #222;
+            color: #ccc;
+        }
+        .navbar {
+            background-color: #234;
+        }
+        .add_btn {
+            width: 220px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .food_name {
+            margin: 3% auto;
+            margin-left: 2%;
+        }
+        .price {
+            font-size: 13px;
+        }
+        .navbar i {
+            font-size: 20px;
+            /* margin-right: 20px; */
+        }
+        table {
+            max-width: 450px;
+            position: absolute;
+            top: 9.5%;
+            right: .5%;
+            background-color: #234;
+        }
+        table td {
+            display: flex;
+            justify-content: space-between;
+        }
+        table .btn_quantity {
+            width: 25px;
+            height: 25px;
+            text-align: center;
+            vertical-align: middle;
+            line-height: 1px;
+            padding: 0 0 4px 0;
+        }
+        .cancel_btn {
+            padding: 0px 5px 2px 5px;
+            line-height: 18px;
+            font-size: 15px;
+            border-color: transparent;
+            max-height: 25px;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="navbar ">
+        <div class="navbar-brand text-success ms-5">BRAND</div>
+        <div class="navbar-item ">
+            <button class="btn btn-outline-secondary" data-bs-toggle="collapse" data-bs-target="#cartCollapse">
+                <i class="bi bi-cart-fill "></i>
+            </button>
+        </div>
+    </div>
+    <section class="mt-4">
+        <div class="container" id="container">
+            <div class="row">
+                <div class="col-12">
+                    <h5 class="text-center mb-5 text-success">OUR MENU</h5>
+                </div>
+            </div>
+            <div class="row" id="containerRow"> </div>
+        </div>
+    </section>
+
+    <table class=" collapse collapse-horizontal table text-success" id="cartCollapse">
+        <tr class=" card-header">
+            <th>Your Order</th>
+        </tr>
+        <tr class="card  bg-dark " id="cartItems">
+            <td id="emptyCart">
+                <span class="text-center">Your cart is empty</span>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <span>Delivery</span>
+                <span>40 MDL</span>
+            </td>`
+        </tr>
+        <tr class="text-light" id="totalPrice"></tr>
+        
+    </table>
+    <script>
+        const DELIVERY     = 40
+        let price          = 0
+        let productsNumber = 0
+        let singlePrice    = []
+        let products       = [
+            {
+                name: "Pizza Toscana",
+                img: "https://www.andys.md/public/menu/thumbs/version_220x310x1/24d891fbc5ffe02dc37ecdba4df6379a.jpg",
+                chosed: false,
+                quantity: 0,
+                price: {
+                    amount: 120.00,
+                    units: "MDL"
+                }
+            },
+            {
+                name: "Mexican Soup",
+                img: "https://www.andys.md/public/menu/thumbs/version_220x310x1/06932edb1d504fa7aca0e77fab6e63ca.jpg",
+                chosed: false,
+                quantity: 0,
+                price: {
+                    amount: 60.00,
+                    units: "MDL"
+                }
+            },
+            {
+                name: "Nachos",
+                img: "https://www.andys.md/public/menu/thumbs/version_220x310x1/15ca610370170ec57077d618e7f48824.jpg",
+                chosed: false,
+                quantity: 0,
+                price: {
+                    amount: 80.00,
+                    units: "MDL"
+                }
+            },
+            {
+                name: "Lemon cheesecake",
+                img: "https://www.andys.md/public/menu/thumbs/version_220x310x1/60aeb9cb4f413bc00a3c000c45e3777d.jpg",
+                chosed: false,
+                quantity: 0,
+                price: {
+                    amount: 50.00,
+                    units: "MDL"
+                }
+            },
+        ]
+        function renderProducts() {
+
+            containerRow.innerHTML = ``
+            for (let i = 0; i < products.length; i++) {
+                containerRow.innerHTML += `
+                
+                    <div class="col-xl-3 col-sm-6 col-xs-12 mb-5">
+                        <img src="${products[i].img}"alt="">
+                        <h5 class="food_name">${products[i].name}</h5>
+                        <button class="btn btn-outline-success add_btn" onclick="addToCart(${i})">
+                            <span class="price">${products[i].price.amount} ${products[i].price.units}</span>
+                            <i class="bi bi-cart-check "></i>
+                        </button>
+                    </div>
+                `
+            }
+        }
+        function addToCart(i) {
+            emptyCart.style.display = "none"
+            products[i].quantity++
+            productsNumber++
+            if (products[i].chosed == false) {
+                cartItems.innerHTML += `
+                        <td id = "cart_items${i}">
+                            <div>${products[i].name}</div> 
+                            <div id="quantity${i}" >
+                                <button onclick="retreatQuantity(${i})" class="btn btn-danger btn_quantity"><b>-</b></button>
+                                <span class="text-light ">${products[i].quantity}</span>
+                                <button onclick="addQuantity(${i})" class="btn btn-success btn_quantity"><b>+</b></button>
+                            </div>
+                            <span>${products[i].price.amount} ${products[i].price.units}</span>
+                            <button class= "cancel_btn btn-danger btn-sm" onclick="cancel_item(${i})">x</button>
+                        </td>`
+                products[i].chosed = true
+                renderPrice(i)
+                showTotal()
+            } else {
+                products[i].quantity++
+                addToCart(i)
+            }
+
+        }
+        function showTotal() {
+            totalPrice.innerHTML = `
+                <td>
+                    <span><b>Total</b></span>
+                    <span><b>${price} ${products[1].price.units}</b></span>
+                </td>`
+        }
+        function addQuantity(i) {
+            products[i].quantity++;
+            productsNumber++
+            renderQuantity(i)
+            showTotal()
+        }
+        function retreatQuantity(i) {
+            if (products[i].quantity > 1) {
+                products[i].quantity--;
+                productsNumber--
+                renderQuantity(i)
+                showTotal()
+            }
+        }
+        function renderPrice(i) {
+            for (i = 0; i < products.length; i++) {
+                singlePrice[i] = products[i].price.amount * products[i].quantity
+            }
+
+            let totalPrice = 0;
+
+            for (let i = 0; i < singlePrice.length; i++) {
+                totalPrice += singlePrice[i];
+            }
+
+            price = totalPrice + DELIVERY;
+        }
+
+        function renderQuantity(i) {
+            const quantityElement = document.querySelector(`#quantity${i}`);
+            quantityElement.innerHTML = `
+                <div id="quantity${i}" >
+                    <button onclick="retreatQuantity(${i})" class="btn btn-danger btn_quantity"><b>-</b></button>
+                    <span class="text-light ">${products[i].quantity}</span>
+                    <button onclick="addQuantity(${i})" class="btn btn-success btn_quantity"><b>+</b></button>
+                </div>
+                `
+            renderPrice(i)
+            
+        }
+        function cancel_item(i) {
+            const cartContainerElement = document.querySelector(`#cart_items${i}`);
+            cartContainerElement.style.display = `none`
+            products[i].quantity = 0;
+            productsNumber--
+            products[i].chosed = false
+            renderPrice(i)
+            showTotal()
+            if (productsNumber < 1){
+                emptyCart.style.display = "block"
+                price = 0
+                showTotal()
+            }
+        }
+        renderProducts()
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+
+</body>
+</html>
